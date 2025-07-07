@@ -36,6 +36,8 @@
       </div>
       <div class="container">
 
+
+
         <div class="password-container">
           <p class="title">Password Generator</p>
           <div>Password Length: <input type="text" id="length"></div>
@@ -59,9 +61,39 @@
         </div>
 
 
+
       </div>
 
-      <div class="container">email-validator</div>
+      <div class="container">
+
+
+
+        <div class="email-container">
+          <p class="formTitle">Email Validation Form</p>
+          <div class="prompt">Enter your email:</div>
+
+          <div class="inputs">
+            <input type="text" id="email" placeholder="example@domain.com"><br>
+            <button class="validate" id="validate">Submit</button><br>
+            <button class="clip" id="clip">Copy to Clipboard</button>
+          </div>
+
+          <div class="email-result" id="email-result"></div>
+
+        </div>
+
+        <div class="emailList">
+          <p class="formTitle">Saved Emails</p>
+          <div class="emailContainer">
+            <ul class="list" id="list">
+            </ul>
+          </div>
+
+        </div>
+
+
+
+      </div>
     </div>
     <button class="btn prev"> prev </button>
     <button class="btn next"> next </button>

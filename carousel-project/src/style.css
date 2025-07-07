@@ -6,7 +6,7 @@ body {
   height: 100vh;
   margin:0;
   padding:0;
-  background: #f4f4f4;
+  background: #f1eeee;
 }
 .car {
   width: 80%;
@@ -29,6 +29,8 @@ body {
 .active {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   animation: fadeIn 0.5s ease;
 }
 
@@ -188,4 +190,149 @@ button {
   font-size: 1em;
   background-color:#7581F0;
   border-radius: 5px;
+}
+
+/*Email-Validater*/
+
+.email-container {
+  justify-content: center;
+  text-align: center;
+  padding:20px;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 350px;
+  font-size: 1.5em;
+  font-weight: bold;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2);
+}
+
+.prompt {
+  font-size: 0.55em;
+  font-weight: normal;
+  text-align: left;
+}
+
+.inputs {
+  text-align: left;
+  width: 100vh;
+}
+
+.inputs input {
+  width: 350px;
+  padding: 5px 5px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.inputs input:hover {
+  cursor: auto;
+}
+
+.inputs button {
+  width: 350px;
+  padding: 5px 5px;
+  margin: 5px 0;
+  border:none;
+  font-size: 0.6em;
+  border-radius: 4px;
+  color: #F4F4F4;
+}
+
+.inputs button:hover {
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2);
+}
+
+#validate {
+  background-color: #4BAF50;
+}
+
+#clip {
+  background-color: #32A3ED;
+}
+
+#validate:active {
+  background-color: #58c65e;
+  transform: translateY(1px);
+}
+
+#clip:active {
+  background-color: #39b1ff;
+  transform: translateY(1px);
+}
+
+.email-result {
+  margin-top: 10px;
+  font-weight: normal;
+  font-size: 0.5em;
+}
+
+.emailList {
+  justify-content: center;
+  text-align: center;
+  padding:20px;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 350px;
+  font-weight: bold;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2);
+  margin-top: 20px;
+}
+
+.emailContainer {
+  background-color: #dfdfdf;
+  padding: 10px;
+  margin: 25px 0;
+  min-height: 30px;
+  border-radius: 5px;
+}
+
+.list {
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  position: relative;
+}
+
+.item {
+  padding:10px;
+  margin: 0 0 5px;
+  flex-grow: 1;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2);
+  font-weight: normal;
+  cursor: grab;
+  font-size: 0.8em;
+}
+.item:hover {
+  transform: translateY(-1px);
+}
+.item.dragging {
+  opacity: 0.5;
+  transform: rotate(-1deg);
+}
+.item.over {
+  border: 2px dashed #e1e1e1;
+}
+
+.item img {
+  width: 15px;
+  background-color: transparent;
+}
+
+.delete-button {
+  flex-shrink: 0;
+  position: absolute;
+  right: 10px;
+  margin-top: -5px;
+  border: none;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 1.2em;
 }

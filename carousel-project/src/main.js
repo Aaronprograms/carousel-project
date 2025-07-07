@@ -154,3 +154,99 @@ resetPassword.addEventListener('click', () => {
     special.checked = false;
     input.value = '';
 });
+
+////Email Validator
+
+const emailResult = document.getElementById("email-result");
+const emailInput = document.getElementById("email");
+const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+let counter = 1;
+
+const validateEmail = document.querySelector(".validate");
+const copyToClipboard = document.querySelector(".clip");
+
+validateEmail.addEventListener('click', () => {
+    if (regex.test(emailInput.value)) {
+        emailResult.textContent = "Valid Email Address";
+        emailResult.style.color = "green";
+        emailManager(emailInput.value);
+    }
+    else {
+        emailResult.textContent = "Invalid Email Address";
+        emailResult.style.color = "red";
+    }
+});
+
+const emailManager = (email) => {
+    const newEmailItem = document.createElement("li");
+    newEmailItem.classList.add("item");
+    newEmailItem.draggable = true;
+    newEmailItem.textContent = email;
+    const deleteButton = document.createElement("button");
+    const deleteIcon = document.createElement("img");
+    deleteIcon.src = "public/delete.png";
+    deleteButton.appendChild(deleteIcon);
+    deleteButton.classList.add("delete-button");
+    deleteButton.addEventListener("click", function () {
+        newEmailItem.remove();
+        counter--;
+    });
+    newEmailItem.appendChild(deleteButton);
+    const emailList = document.getElementById("list");
+    emailList.appendChild(newEmailItem);
+    counter++;
+};
+
+copyToClipboard.addEventListener('click', () => {
+    if (regex.test(emailInput.value)) {
+        navigator.clipboard.writeText(emailInput.value);
+        emailResult.textContent = "Copied to Clipboard!";
+        emailResult.style.color = "blue";
+    }
+    else {
+        emailResult.textContent = "Invalid Email Address";
+        emailResult.style.color = "red";
+    }
+});
+
+const list = document.querySelector(".list");
+let dragging = null;
+if (list) {
+    list.addEventListener('dragstart', function (e) {
+        const target = e.target;
+        if (target && target.classList.contains('item')) {
+            dragging = target;
+            target.classList.add('dragging');
+        }
+    });
+    list.addEventListener('dragend', function (e) {
+        if (dragging) {
+            dragging.classList.remove('dragging');
+        }
+        document.querySelectorAll('.item').forEach(function (item) { return item.classList.remove('over'); });
+        dragging = null;
+    });
+    list.addEventListener('dragover', function (e) {
+        e.preventDefault();
+        const afterElement = getDragAfterElement(list, e.clientY);
+        document.querySelectorAll('.item').forEach(function (item) { return item.classList.remove('over'); });
+        if (afterElement && dragging) {
+            afterElement.classList.add('over');
+            list.insertBefore(dragging, afterElement);
+        }
+        else if (dragging) {
+            list.appendChild(dragging);
+        }
+    });
+}
+const getDragAfterElement = (container, y) => {
+    const items = Array.prototype.slice.call(container.querySelectorAll('.item:not(.dragging)'));
+    return items.reduce(function (closest, child) {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child };
+        }
+        return closest;
+    }, { offset: Number.NEGATIVE_INFINITY, element: null }).element;
+};
