@@ -81,3 +81,76 @@ const update = () => {
 }
 
 ////PASSWORD
+
+const result = document.getElementById('result');
+const input = document.getElementById('length');
+const upper = document.getElementById('uppercase');
+const number = document.getElementById('numbers');
+const special = document.getElementById('special');
+
+const generatePassword = document.querySelector('.generate');
+const resetPassword = document.querySelector('.reset');
+const togglePassword = document.querySelector('.toggle');
+
+let hasClicked = false;
+
+const password = (len, upper, nums, special) => {
+    const baseCharacters = "abcdefghijklmnopqrstuvwxyz";
+    const upperCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const numCharacters = "0123456789";
+    const specialCharacters = "!@#$%^&*()-_=+[]{}|;:,.<>?";
+    let characters = baseCharacters;
+
+    if(upper) characters += upperCharacters;
+    if(nums) characters += numCharacters;
+    if(special) characters += specialCharacters;
+
+    let password = '';
+
+    for(let i = 0; i < len; i++) {
+        password += characters.charAt(Math.floor(Math.random()*characters.length));
+    }
+
+    return password;
+}
+
+
+generatePassword.addEventListener('click', () => {
+
+    if(input.value) {
+
+        result.textContent = password(input.value, upper.checked,
+            number.checked, special.checked);
+        window.currPassword = result.textContent;
+
+    } else {
+        result.textContent = 'Please enter a password length';
+    }
+
+});
+
+togglePassword.addEventListener('click', () => {
+    const image = document.getElementById('image');
+
+    if(input.value) {
+        hasClicked ? hasClicked = false : hasClicked = true;
+        hasClicked ? image.src = 'public/hidden.png' : image.src = 'public/eye.png';
+
+
+        let password = '';
+        for(let i = 0; i < input.value; i++) {
+            password += "*";
+        }
+
+        hasClicked ? result.textContent = password : result.textContent = currPassword;
+    }
+
+});
+
+resetPassword.addEventListener('click', () => {
+    result.textContent = 'Your password will appear here';
+    upper.checked = false;
+    number.checked = false;
+    special.checked = false;
+    input.value = '';
+});

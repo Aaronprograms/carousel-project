@@ -29,7 +29,7 @@ body {
 .active {
   display: flex;
   justify-content: center;
-  animation: fadeIn 0.5s;
+  animation: fadeIn 0.5s ease;
 }
 
 @keyframes fadeIn {
@@ -123,3 +123,69 @@ button {
 }
 
 /*Password*/
+
+.password-container {
+  text-align:center;
+  padding: 20px;
+  width: 300px;
+  border: 1px solid #5B56E7;
+  border-radius: 15px;
+  background-color:#5B56E7;
+  color: #fff;
+  box-shadow:0px 0px 20px 1px #3937B6;
+
+}
+
+.title {
+  font-weight:bold;
+  font-size: 2.4em;
+  color: #fff;
+  margin-bottom:25px;
+  word-wrap: break-word;
+}
+
+#length {
+  text-align: center;
+  width:40px;
+  margin-bottom: 20px;
+}
+
+.password-btns button {
+  padding: 8px 18px;
+  margin: 10px;
+  font-size: 0.8em;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #6A10CB;
+  color: #fff;
+}
+
+.password-btns button:hover {
+  background-color: #6117b1;
+
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.24);
+}
+
+.password-btns button:active {
+  background-color: #7b19e6;
+  transform: translateY(1px);
+}
+
+#image {
+  width: 20px;
+}
+
+#image:active {
+  transform: translateY(1px);
+}
+
+
+.result {
+  margin-top:20px;
+  margin-bottom: 30px;
+  padding: 8px 2px;
+  font-size: 1em;
+  background-color:#7581F0;
+  border-radius: 5px;
+}

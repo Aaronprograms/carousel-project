@@ -34,31 +34,32 @@
 
 
       </div>
-      <div class="container">password</div>
+      <div class="container">
 
-      <div class="password-container">
-        <p class="title">Password Generator</p>
-        <div>Password Length: <input type="text" id="length"></div>
-        <div>
-          <form>
-            <input type="checkbox" id="uppercase">
-            <label for="uppercase">Include Uppercase</label><br>
-            <input type="checkbox" id="numbers">
-            <label for="numbers">Include Numbers</label><br>
-            <input type="checkbox" id="special">
-            <label for="special">Include Special Characters</label><br>
-          </form>
-        </div>
-        <div>
-          <button onclick="generatePassword()">Generate Password</button>
-          <button onclick="resetPassword()">Reset</button>
+        <div class="password-container">
+          <p class="title">Password Generator</p>
+          <div>Password Length: <input type="text" id="length"></div>
+          <div>
+            <form>
+              <input type="checkbox" id="uppercase">
+              <label for="uppercase">Include Uppercase</label><br>
+              <input type="checkbox" id="numbers">
+              <label for="numbers">Include Numbers</label><br>
+              <input type="checkbox" id="special">
+              <label for="special">Include Special Characters</label><br>
+            </form>
+          </div>
+          <div class="password-btns">
+            <button class="generate">Generate Password</button>
+            <button class="reset">Reset</button>
+          </div>
+
+          <div class="result" id="result">Your password will appear here</div>
+          <span><img src="public/eye.png" class="toggle" id ="image"></span>
         </div>
 
-        <div class="result" id="result">Your password will appear here</div>
-        <span><img src="assets/eye.png" id ="image" onclick="togglePassword()"></span>
+
       </div>
-
-
 
       <div class="container">email-validator</div>
     </div>
