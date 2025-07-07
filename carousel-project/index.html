@@ -1,13 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<head>
+  <title>Carousel</title>
+</head>
+<body>
+  <div class="car">
+    <div class="wrap">
+      <div class="container active">
+
+
+
+        <div class = "count-container">
+          <div class = "counter">
+            <p id ="count">0</p>
+          </div>
+          <div>
+            <button class="dec">Decrement</button>
+            <button class="inc">Increment</button>
+          </div>
+          <div class="clicks">
+            <p>Clicks on Increment: <span id="incCount">0</span></p>
+            <p>Clicks on Decrement: <span id="decCount">0</span></p>
+          </div>
+
+          <span>
+            <p id="prime">Prime Number Checker</p>
+            <button class="primeCheck" id="primebtn">Check</button>
+        </span>
+
+          <div id="prime-result"></div>
+        </div>
+
+
+
+      </div>
+      <div class="container">password</div>
+
+      <div class="password-container">
+        <p class="title">Password Generator</p>
+        <div>Password Length: <input type="text" id="length"></div>
+        <div>
+          <form>
+            <input type="checkbox" id="uppercase">
+            <label for="uppercase">Include Uppercase</label><br>
+            <input type="checkbox" id="numbers">
+            <label for="numbers">Include Numbers</label><br>
+            <input type="checkbox" id="special">
+            <label for="special">Include Special Characters</label><br>
+          </form>
+        </div>
+        <div>
+          <button onclick="generatePassword()">Generate Password</button>
+          <button onclick="resetPassword()">Reset</button>
+        </div>
+
+        <div class="result" id="result">Your password will appear here</div>
+        <span><img src="assets/eye.png" id ="image" onclick="togglePassword()"></span>
+      </div>
+
+
+
+      <div class="container">email-validator</div>
+    </div>
+    <button class="btn prev"> prev </button>
+    <button class="btn next"> next </button>
+  </div>
+  <script type="module" src="src/main.js"></script>
+</body>
 </html>
